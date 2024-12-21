@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <include>fadeInOut</include>
+    <controls>
+        <include>modalDialog</include>
+		<control type="grouplist" id="996">
+            <posx>col-9-begin</posx>
+            <posy>6-row</posy>
+            <width>8-col</width>
+            <itemgap>0</itemgap>
+			<onright>9004</onright>
+			<height>18-row</height>
+        </control>
+		<control type="group">
+	        <control type="button" id="1000">
+	            <description>Buttons</description>
+                <texturefocus border="24" colordiffuse="highlight">masks/menuTitle.png</texturefocus>
+                <focusedcolor>textActive</focusedcolor>
+	            <width>8-col</width>
+                <align>left</align>
+                <textoffsetx>24</textoffsetx>
+	        </control>
+		</control>
+        <!--debugging-->
+        <include>DebugGrid</include>
+        <control type="label">
+            <include>DialogID</include>
+            <label>DialogContextMenu.xml</label>
+        </control>
+    </controls>
+</window>

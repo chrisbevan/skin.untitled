@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon id="skin.pellucid" version="3.1.0" name="Pellucid" provider-name="theDeadman">
     <requires>
-        <import addon="xbmc.gui" version="5.15.0"/>
+        <import addon="xbmc.gui" version="5.17.0"/>
     </requires>
     <extension point="xbmc.gui.skin" debugging="false">
-        <res width="1920" height="1080" aspect="16:9" default="true" folder="1080i" />
+        <res width="1920" height="1080" aspect="16:9" default="true" folder="xml" />
     </extension>
     <extension point="xbmc.addon.metadata">
         <platform>all</platform>
@@ -13,30 +13,7 @@
         <source>https://github.com/chrisbevan/skin.pellucid</source>
         <assets>
             <icon>resources/icon.png</icon>
-            <fanart>resources/fanart.jpg</fanart>
-            <screenshot>resources/screenshot-01.jpg</screenshot>
-            <screenshot>resources/screenshot-02.jpg</screenshot>
-            <screenshot>resources/screenshot-03.jpg</screenshot>
-            <screenshot>resources/screenshot-04.jpg</screenshot>
-            <screenshot>resources/screenshot-05.jpg</screenshot>
-            <screenshot>resources/screenshot-06.jpg</screenshot>
         </assets>
-        <summary lang="ca_ES">Una skin per a Kodi de theDeadmanInYossariansTent</summary>
-        <summary lang="de_DE">Ein Skin für Kodi, von theDeadmanInYossariansTent</summary>
-        <summary lang="en_GB">A skin for Kodi from theDeadmanInYossariansTent</summary>
-        <summary lang="es_ES">Una skin para Kodi de theDeadmanInYossariansTent</summary>
-        <summary lang="es_MX">Una máscara para Kodi por theDeadmanInYossariansTent</summary>
-        <summary lang="id_ID">Skin untuk Kodi dari theDeadmanInYossariansTent</summary>
-        <summary lang="nl_NL">Een skin voor Kodi van theDeadmanInYossariansTent</summary>
-        <summary lang="ru_RU">Обложка для Kodi от theDeadmanInYossariansTent</summary>
-        <summary lang="zh_CN">一款theDeadmanInYossariansTent制作的KODI皮肤</summary>
-        <description lang="ca_ES">Pellucid és una experiència Kodi lleugera, neta i senzilla dissenyada per a la màxima usabilitat i el mínim enrenou.</description>
-        <description lang="de_DE">Pellucid bietet ein leichtgewichtiges, übersichtliches und einfaches Kodi-Erlebnis, geschaffen für höchste Benutzerfreundlichkeit und Minimalismus.</description>
-        <description lang="en_GB">Pellucid is a lightweight, clean and simple Kodi experience designed for maximum usability and minimum fuss.</description>
-        <description lang="es_ES">Pellucid es una experiencia para Kodi ligera, limpia y simple diseñada para la máxima usabilidad y un minimo impacto.</description>
-        <description lang="es_MX">Pellucid es una experiencia con Kodi ligera, simple y sencilla diseñada para máxima usabilidad y mínima molestia.</description>
-        <description lang="id_ID">Pellucid adalah pengalaman Kodi yang ringan, bersih, dan sederhana yang dirancang untuk kegunaan maksimum dan kerepotan minimum.</description>
-        <description lang="nl_NL">Pellucid vormt een lichte en simpele Kodi-ervaring, ontworpen voor maximaal gebruik en minimaal gedoe.</description>
-        <description lang="zh_CN">Pellucid提供轻巧、干净和简单的KODI体验，旨在最大限度地提高可用性和最大限度地减少麻烦。</description>
+        <summary lang="en_GB">A skin for Kodi by Chris Bevan</summary>
     </extension>
 </addon>

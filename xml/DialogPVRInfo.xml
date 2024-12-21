@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <defaultcontrol always="true">8000</defaultcontrol>
+    <controls>
+        <control type="group">
+            <!--background-->
+            <control type="group">
+                <include>fadeInOut</include>
+                <control type="image">
+                    <include>dimensionsFullscreen</include>
+                    <texture>colors/black.png</texture>
+                    <colordiffuse>eeFFFFFF</colordiffuse>
+                    <aspectratio>stretch</aspectratio>
+                </control>
+            </control>
+            <!--content-->
+            <control type="group">
+               <posx>col-7-begin</posx>
+               <posy>row-5-begin</posy>
+               <include>modalDialogInOut</include>
+               <!--titles-->
+               <control type="label">
+                   <description>Episode title</description>
+                   <posx>0</posx>
+                   <posy>-6</posy>
+                   <width>11-col</width>
+                   <height>3-row</height>
+                   <align>left</align>
+                   <aligny>center</aligny>
+                   <font>largeTitle</font>
+                   <textcolor>textActive</textcolor>
+                   <shadowcolor></shadowcolor>
+                   <label>$INFO[ListItem.Label]</label>
+                   <wrapmultiline>true</wrapmultiline>
+               </control>
+               <!--meta-->
+               <control type="panel">
+                   <posx>0</posx>
+                   <posy>132</posy>
+                   <width>12-col</width>
+                   <height>6-row</height>
+                   <enable>false</enable>
+                   <itemlayout width="6-col" height="78">
+                       <control type="label">
+                           <posx>0</posx>
+                           <posy>0</posy>
+                           <width>5-col</width>
+                           <font>itemSubTitle</font>
+                           <textcolor>highlight</textcolor>
+                           <label>[B]$INFO[ListItem.label][/B]</label>
+                           <shadowcolor></shadowcolor>
+                       </control>
+                       <control type="label">
+                           <posx>0</posx>
+                           <posy>30</posy>
+                           <width>5-col</width>
+                           <font>itemSubTitle</font>
+                           <textcolor>textActive</textcolor>
+                           <label fallback="13205">[B]$INFO[ListItem.label2][/B]</label>
+                           <shadowcolor></shadowcolor>
+                       </control>
+                   </itemlayout>
+                   <focusedlayout/>
+                   <content>
+                       <item>
+                           <label>$LOCALIZE[19029]</label>
+                           <label2>$INFO[ListItem.channelname]</label2>
+                           <thumb></thumb>
+                       </item>
+                       <item>
+                           <label>$LOCALIZE[552]</label>
+                           <label2>$INFO[ListItem.startdate]</label2>
+                           <thumb></thumb>
+                       </item>
+                       <item>
+                           <label>$LOCALIZE[515]</label>
+                           <label2 fallback="31253">$INFO[ListItem.genre]</label2>
+                           <thumb></thumb>
+                       </item>
+                       <item>
+                           <label>$LOCALIZE[180]</label>
+                           <label2>$INFO[ListItem.duration(H)]hr $INFO[ListItem.duration(MM)]min</label2>
+                           <thumb></thumb>
+                       </item>
+                   </content>
+               </control>
+               <!--synopsis-->
+               <control type="textbox">
+                   <posx>0</posx>
+                   <posy>292</posy>
+                   <font>textbox</font>
+                   <width>12-col-gutter</width>
+                   <align>left</align>
+                   <textcolor>textActive</textcolor>
+                   <shadowcolor></shadowcolor>
+                   <height>232</height>
+                   <label>$INFO[ListItem.plot]</label>
+                   <autoscroll>false</autoscroll>
+                   <pagecontrol>61</pagecontrol>
+               </control>
+               <control type="scrollbar" id="61">
+                   <posx>-36</posx>
+                   <posy>300</posy>
+                   <height>6-row</height>
+                   <ondown>8000</ondown>
+               </control>
+                <!--dialog controls-->
+                <control type="grouplist" id="8000">
+                    <posx>0</posx>
+                    <posy>16-row</posy>
+                    <width>16-col</width>
+                    <height>2-row</height>
+                    <orientation>horizontal</orientation>
+                    <onup>61</onup>
+                    <control type="button" id="5">
+                        <visible>!window.isactive(tvrecordings) + !window.isactive(radiorecordings)</visible>
+                        <description>Switch to Channel</description>
+                        <align>center</align>
+                        <textoffsetx>0</textoffsetx>
+                        <texturefocus border="24" colordiffuse="highlight">masks/menuTitle.png</texturefocus>
+                        <texturenofocus border="24" colordiffuse="bb1a1a1a">masks/menuTitle.png</texturenofocus>
+                        <focusedcolor>textActive</focusedcolor>
+                        <label>208</label>
+                    </control>
+                    <control type="button" id="4">
+                        <visible>false</visible>
+                        <description>Find similar</description>
+                        <align>center</align>
+                        <textoffsetx>0</textoffsetx>
+                        <texturefocus border="24" colordiffuse="highlight">masks/menuTitle.png</texturefocus>
+                        <texturenofocus border="24" colordiffuse="bb1a1a1a">masks/menuTitle.png</texturenofocus>
+                        <focusedcolor>textActive</focusedcolor>
+                        <label>19003</label>
+                    </control>
+                    <control type="button" id="6">
+                        <visible>!window.isactive(tvrecordings) + !window.isactive(radiorecordings)</visible>
+                        <description>Record</description>
+                        <align>center</align>
+                        <textoffsetx>0</textoffsetx>
+                        <texturefocus border="24" colordiffuse="highlight">masks/menuTitle.png</texturefocus>
+                        <texturenofocus border="24" colordiffuse="bb1a1a1a">masks/menuTitle.png</texturenofocus>
+                        <focusedcolor>textActive</focusedcolor>
+                    </control>
+                    <control type="button" id="8">
+                        <description>Play recording</description>
+                        <align>center</align>
+                        <textoffsetx>0</textoffsetx>
+                        <texturefocus border="24" colordiffuse="highlight">masks/menuTitle.png</texturefocus>
+                        <texturenofocus border="24" colordiffuse="bb1a1a1a">masks/menuTitle.png</texturenofocus>
+                        <focusedcolor>textActive</focusedcolor>
+                        <label>19687</label>
+                    </control>
+                    <control type="button" id="11">
+                        <visible>false</visible>
+                        <description>Set Reminder</description>
+                        <align>center</align>
+                        <textoffsetx>0</textoffsetx>
+                        <texturefocus border="24" colordiffuse="highlight">masks/menuTitle.png</texturefocus>
+                        <texturenofocus border="24" colordiffuse="bb1a1a1a">masks/menuTitle.png</texturenofocus>
+                        <focusedcolor>textActive</focusedcolor>
+                        <label>826</label>
+                    </control>
+                    <control type="button" id="4110">
+                        <visible>!window.isactive(tvrecordings) + !window.isactive(radiorecordings)</visible>
+                        <description>TV Guide</description>
+                        <label>31073</label>
+                        <align>center</align>
+                        <textoffsetx>0</textoffsetx>
+                        <texturefocus border="24" colordiffuse="highlight">masks/menuTitle.png</texturefocus>
+                        <texturenofocus border="24" colordiffuse="bb1a1a1a">masks/menuTitle.png</texturenofocus>
+                        <focusedcolor>textActive</focusedcolor>
+                        <onclick>dialog.close(all,true)</onclick>
+                        <onclick>ActivateWindow(TVGuide)</onclick>
+                        <onclick>Control.SetFocus(10)</onclick>
+                    </control>
+                </control>                
+            </control>
+        </control>
+        <!--debugging-->
+        <include>DebugGrid</include>
+        <control type="label">
+            <include>WindowID</include>
+            <label>DialogPVRInfo.xml</label>
+        </control>
+    </controls>
+</window>

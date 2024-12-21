@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <defaultcontrol always="true">9</defaultcontrol>
+    <controls>
+        <include>globalBackground</include>
+        <!--configuration options-->
+        <control type="group">
+            <posx>col-4-begin</posx>
+            <posy>row-4-begin</posy>
+            <!--animations-->
+            <include>modalDialogInOutVertical</include>
+            <!--content provider title / info-->
+            <control type="image">
+                <posx>-12</posx>
+                <posy>-12</posy>
+                <width>1320</width>
+                <height>22-row</height>
+                <texture border="24">dialogBackground.png</texture>
+                <colordiffuse>overlay</colordiffuse>
+                <aspectratio>stretch</aspectratio>
+            </control>
+            <control type="image">
+                <posx>0</posx>
+                <posy>0</posy>
+                <width>18-col</width>
+                <height>2-row</height>
+                <texture border="10">masks/menuTitle2.png</texture>
+                <colordiffuse>highlight</colordiffuse>
+                <aspectratio>stretch</aspectratio>
+            </control>
+            <!--title-->
+            <control type="label">
+                <posx>24</posx>
+                <posy>0</posy>
+                <width>18-col-gutter</width>
+                <height>2-row</height>
+                <font>dialogTitle</font>
+                <label>$INFO[ListItem.AddonName] $LOCALIZE[5]</label>
+                <textcolor>textActive</textcolor>
+                <shadowcolor></shadowcolor>
+            </control>
+            <!--subnav-->
+            <control type="grouplist" id="3">
+                <posx>0</posx>
+                <posy>76</posy>
+                <width>276</width>
+                <height>20-row</height>
+                <onleft>9000</onleft>
+                <onright>5</onright>
+                <orientation>vertical</orientation>
+            </control>
+            <control type="grouplist" id="5">
+                <posx>280</posx>
+                <posy>76</posy>
+                <width>708</width>
+                <height>19-row</height>
+                <onleft>3</onleft>
+                <onright>9001</onright>
+                <orientation>vertical</orientation>
+            </control>
+
+            <!--ok, cancel etc buttons-->
+            <control type="grouplist" id="9001">
+                <posx>14-col</posx>
+                <posy>76</posy>
+                <onleft>5</onleft>
+                <control type="button" id="28">
+                    <description>OK Button</description>
+                    <font>buttonTitle</font>
+                </control>
+                <control type="button" id="29">
+                    <description>Cancel Button</description>
+                </control>
+                <control type="button" id="30">
+                    <description>Defaults Button</description>
+                </control>
+            </control>
+            
+            <!--defaults-->
+            <control type="togglebutton" id="10">
+                <description>Default Category Button</description>
+                <width>287</width>
+                <font>buttonTitle</font>
+                <texturefocus>colors/white.png</texturefocus>
+                <texturenofocus></texturenofocus>
+            </control>
+            <control type="button" id="7">
+                <description>Default Button</description>
+            </control>
+            <control type="radiobutton" id="8">
+                <description>Default RadioButton</description>
+            </control>
+            <control type="spincontrolex" id="9">
+                <description>Default spincontrolex</description>
+                <texturenofocus></texturenofocus>
+            </control>
+            <control type="image" id="11">
+                <visible>false</visible>
+                <description>Default Separator</description>
+                <width>1</width>
+                <height>1</height>
+                <texture>colors/black.png</texture>
+                <colordiffuse>ffffffff</colordiffuse>
+                <aspectratio>stretch</aspectratio>
+            </control>
+            <control type="edit" id="12">
+                <description>Default Edit</description>
+				<font>buttonTitle</font>
+				<textoffsetx>24</textoffsetx>
+                <texturenofocus></texturenofocus>
+            </control>
+			<control type="sliderex" id="13">
+                <description>Default Slider</description>
+            </control>
+			<control type="label" id="14">
+                <label></label>
+                <textoffsetx>24</textoffsetx>
+                <height>2-row</height>
+                <font>settingsCategoryTitle</font>
+                <textcolor>highlight</textcolor>
+            </control>
+        </control>
+        <!--debugging-->
+        <include>DebugGrid</include>
+        <control type="label">
+            <include>DialogID</include>
+            <label>DialogAddonSettings.xml</label>
+        </control>
+    </controls>
+</window>

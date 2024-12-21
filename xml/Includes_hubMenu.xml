@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+    <!--main hub menu-->
+    <include name="hubMenu">
+		<control type="image">
+            <include>dimensionsFullscreen</include>
+            <texture>colors/black.png</texture>
+            <colordiffuse>d5FFFFFF</colordiffuse>
+            <aspectratio>stretch</aspectratio>
+			<animation type="Conditional" condition="controlgroup(9000).hasfocus">
+                <effect type="fade" start="0" end="100" time="200"/>
+            </animation>
+            <animation type="Conditional" condition="!controlgroup(9000).hasfocus">
+                <effect type="fade" start="100" end="0" time="100"/>
+            </animation>
+        </control>
+        <control type="group" id="9000">
+            <animation type="windowopen">
+                <effect type="slide" start="-384" end="0" tween="sine" delay="500" time="400"/>
+            </animation>
+			<animation type="windowclose">
+                <effect type="fade" start="100" end="0" time="0"/>
+            </animation>
+            <animation type="Conditional" condition="controlgroup(9000).hasfocus">
+                <effect type="slide" start="-384" end="0" tween="sine" time="400"/>
+            </animation>
+            <animation type="Conditional" condition="!controlgroup(9000).hasfocus">
+                <effect type="slide" start="0" end="-384" tween="sine" time="400"/>
+            </animation>
+            <control type="image">
+                <posx>-200</posx>
+                <posy>-200</posy>
+                <width>584</width>
+                <height>1500</height>
+                <texture>colors/white.png</texture>
+                <colordiffuse>highlight</colordiffuse>
+                <aspectratio>stretch</aspectratio>
+            </control>
+            <!--logo-->
+			<control type="group">
+				<posx>col-1-begin</posx>
+                <posy>row-2-begin</posy>
+	            <control type="label">
+	                <posx>0</posx>
+	                <posy>-12</posy>
+	                <width>73</width>
+	                <height>73</height>
+	                <font>symbolVeryLarge</font>
+	                <aligny>center</aligny>
+	                <textcolor>eeffffff</textcolor>
+	                <label>$VAR[menuLogo]</label>
+	            </control>
+			</control>
+
+            <!--player controls (if media playing)-->
+            <control type="group">
+                <visible>player.hasaudio</visible>
+                <posx>0</posx>
+                <posy>row-5-begin</posy>
+
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>col-5-begin</width>
+                    <height>1-col</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture>colors/black.png</texture>
+                    <colordiffuse>33ffffff</colordiffuse>
+                </control>
+                
+                <control type="image">
+                    <visible>control.hasfocus(5115)</visible>
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>col-5-begin</width>
+                    <height>1-col</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture>colors/white.png</texture>
+                </control>
+
+                <control type="panel" id="5115">
+                    <posx>46</posx>
+                    <posy>0</posy>
+                    <width>col-5-begin</width>
+                    <height>2-row</height>
+                    <itemgap>0</itemgap>
+                    <ondown>Control.SetFocus(9001)</ondown>
+                    <onright condition="!window.isactive(1103)">9999</onright>
+                    <onright condition="window.isactive(1103)">control.setfocus(9876)</onright>
+                    <orientation>horizontal</orientation>
+                    <itemlayout width="1-col" height="2-row">
+                        <control type="label">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>1-col</width>
+                            <height>2-row</height>
+                            <align>center</align>
+                            <aligny>center</aligny>
+                            <font>symbol</font>
+                            <textcolor>textActive</textcolor>
+                            <label>$INFO[ListItem.label2]</label>
+                        </control>
+                        <control type="label">
+                            <visible>control.hasfocus(5115)</visible>
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>1-col</width>
+                            <height>2-row</height>
+                            <align>center</align>
+                            <aligny>center</aligny>
+                            <font>symbol</font>
+                            <textcolor>highlight</textcolor>
+                            <label>$INFO[ListItem.label2]</label>
+                        </control>
+                    </itemlayout>
+                    <focusedlayout width="1-col" height="2-row">
+                        <control type="image">
+                            <posx>3</posx>
+                            <posy>3</posy>
+                            <width>66</width>
+                            <height>66</height>
+                            <aspectratio>stretch</aspectratio>
+                            <texture diffuse="masks/square.png">colors/white.png</texture>
+                            <colordiffuse>highlight</colordiffuse>
+                        </control>
+                        <control type="label">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>1-col</width>
+                            <height>2-row</height>
+                            <align>center</align>
+                            <aligny>center</aligny>
+                            <font>symbol</font>
+                            <textcolor>textActive</textcolor>
+                            <label>$INFO[ListItem.label2]</label>
+                            <shadowcolor></shadowcolor>
+                        </control>
+                    </focusedlayout>
+                    <content>
+                        <item>
+                            <description>Previous</description>
+                            <label2></label2>
+                            <thumb></thumb>
+                            <onclick>PlayerControl(previous)</onclick>
+                        </item>
+                        <item>
+                            <description>Stop</description>
+                            <label2></label2>
+                            <thumb></thumb>
+                            <onclick>PlayerControl(stop)</onclick>
+                            <onclick>Dialog.Close(1103)</onclick>
+                        </item>
+                        <item>
+                            <visible>Player.Playing | player.forwarding | player.rewinding</visible>
+                            <description>Play/Pause</description>
+                            <label2></label2>
+                            <thumb></thumb>
+                            <onclick>PlayerControl(play)</onclick>
+                        </item>
+                        <item>
+                            <visible>Player.Paused</visible>
+                            <description>Pause</description>
+                            <label2></label2>
+                            <thumb></thumb>
+                            <onclick>PlayerControl(play)</onclick>
+                        </item>
+                        <item>
+                            <description>Next Chapter</description>
+                            <label2></label2>
+                            <thumb></thumb>
+                            <onclick>PlayerControl(next)</onclick>
+                        </item>
+                    </content>
+                </control>
+            </control>
+
+            <control type="panel" id="9001">
+                <animation condition="player.hasaudio" effect="slide" end="0,72" time="0">conditional</animation>
+                <posx>0</posx>
+                <posy>row-5-begin</posy>
+                <width>col-5-begin</width>
+                <height>832</height>
+                <orientation>vertical</orientation>
+                <onright condition="!window.isactive(1103)">9999</onright>
+                <onright condition="window.isactive(1103)">9876</onright>
+                <onup condition="control.isvisible(5115)">control.setfocus(5115)</onup>
+                <onback>activateWindow(home)</onback>
+                <itemlayout width="col-5-begin" height="2-row">
+                    <control type="label">
+                        <posx>col-1-begin</posx>
+                        <posy>0</posy>
+                        <width>4-col-gutter</width>
+                        <height>2-row</height>
+                        <font>menuTitle2</font>
+                        <aligny>center</aligny>
+                        <textcolor>eeffffff</textcolor>
+                        <shadowcolor></shadowcolor>
+                        <label>[CAPITALIZE]$INFO[ListItem.label][/CAPITALIZE]</label>
+                    </control>
+                </itemlayout>
+                <focusedlayout width="col-5-begin" height="2-row">
+					<control type="image">
+                        <posx>0</posx>
+                        <posy>0</posy>
+                        <width>col-5-begin</width>
+                        <height>2-row</height>
+                        <texture>colors/white.png</texture>
+                        <aspectratio>stretch</aspectratio>
+                    </control>
+                    <control type="label">
+                        <posx>col-1-begin</posx>
+                        <posy>0</posy>
+                        <width>4-col-gutter</width>
+                        <height>2-row</height>
+                        <font>menuTitle2</font>
+                        <aligny>center</aligny>
+                        <textcolor>highlight</textcolor>
+                        <shadowcolor></shadowcolor>
+                        <label>[CAPITALIZE]$INFO[ListItem.label][/CAPITALIZE]</label>
+                    </control>
+                </focusedlayout>
+                <content>
+                    <include condition="window.isactive(games)">menus-gamemenu</include>
+					<include condition="window.isactive(pictures)">menus-picturemenu</include>
+                    <include condition="String.Contains(container.folderpath,videodb://musicvideos/titles) | window.isactive(music) | window.isactive(radiochannels) | window.isactive(radioguide) | window.isactive(radiorecordings) | window.isactive(radiotimers) | window.isactive(musicplaylist) | window.isactive(1103)">menus-musicmenu</include>
+                    <include condition="[window.isactive(videos) + !String.Contains(container.folderpath,videodb://musicvideos/titles)] | window.isactive(tvchannels) | window.isactive(tvrecordings) | window.isactive(tvguide) | window.isactive(tvtimers) | window.isactive(videoplaylist)">menus-videomenu</include>
+                </content>
+            </control>
+        </control>
+    </include>
+</includes>

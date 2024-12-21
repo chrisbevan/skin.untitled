@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+    <include name="filelist">
+        <control type="panel" id="50">
+            <visible>$EXP[isFileList]</visible>
+            <posx>col-1-begin</posx>
+            <posy>row-5-begin</posy>
+            <width>24-col</width>
+            <height>23-row</height>
+            <onleft>9000</onleft>
+            <onright>61</onright>
+            <ondown>50</ondown>
+            <onup>50</onup>
+            <pagecontrol>61</pagecontrol>
+            <itemlayout width="24-col" height="2-row">
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>69</width>
+                    <height>69</height>
+                    <aspectratio scalediffuse="false">stretch</aspectratio>
+                    <texture fallback="colors/black.png" diffuse="masks/iconEndCapLeft.png" border="0">$INFO[Listitem.thumb]</texture>
+					<colordiffuse>d0000000</colordiffuse>
+                </control>
+                <control type="image">
+                    <posx>1-col</posx>
+                    <posy>0</posy>
+                    <width>23-col</width>
+                    <height>69</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture>masks/tvChannel.png</texture>
+                    <colordiffuse>d0000000</colordiffuse>
+                </control>
+                <control type="label">
+                    <posx>96</posx>
+                    <posy>0</posy>
+                    <width>22-col-gutter</width>
+                    <height>2-row</height>
+                    <aligny>center</aligny>
+                    <font>itemTitle</font>
+                    <textcolor>textActive</textcolor>
+                    <shadowcolor></shadowcolor>
+                    <label>$INFO[ListItem.Label]</label>
+                </control>
+            </itemlayout>
+            <focusedlayout width="24-col" height="2-row">
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>72</width>
+                    <height>69</height>
+                    <aspectratio scalediffuse="false">stretch</aspectratio>
+                    <texture diffuse="masks/iconEndCapLeft.png" border="0">colors/white.png</texture>
+                    <animation type="focus">
+                        <effect type="fade" start="100" end="50" time="0"/>
+                    </animation>
+                    <colordiffuse>highlight</colordiffuse>
+                </control>
+                <control type="image">
+                    <posx>1-col</posx>
+                    <posy>0</posy>
+                    <width>23-col</width>
+                    <height>69</height>
+                    <aspectratio>stretch</aspectratio>
+					<texture border="0">masks/tvChannel.png</texture>
+					<colordiffuse>highlight</colordiffuse>
+                </control>
+                <control type="label">
+                    <posx>96</posx>
+                    <posy>0</posy>
+                    <width>22-col-gutter</width>
+                    <height>2-row</height>
+                    <aligny>center</aligny>
+                    <font>itemTitle</font>
+                    <textcolor>textActive</textcolor>
+                    <shadowcolor></shadowcolor>
+                    <label>$INFO[ListItem.Label]</label>
+                </control>
+            </focusedlayout>
+        </control>
+    </include>
+</includes>

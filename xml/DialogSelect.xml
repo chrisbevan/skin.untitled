@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <defaultcontrol always="true">9000</defaultcontrol>
+    <onload condition="!Integer.IsGreater(container(3).numitems,0) + !Integer.IsGreater(container(6).numitems,0)">control.SetFocus(9999)</onload>
+    <controls>
+        <!--background-->
+        <include condition="!Player.HasVideo">globalBackground</include>
+        <control type="group">
+            <control type="group">
+                <posx>col-7-begin</posx>
+                <posy>row-3-begin</posy>
+                <!--animations-->
+                <include condition="!Player.hasVideo">modalDialogInOutVertical</include>
+                <control type="image">
+                    <visible>player.hasvideo</visible>
+                    <posx>-12</posx>
+                    <posy>-12</posy>
+                    <width>888</width>
+                    <height>780</height>
+                    <texture border="24">dialogBackground.png</texture>
+                    <colordiffuse>99FFFFFF</colordiffuse>
+                    <aspectratio>stretch</aspectratio>
+                </control>
+                <control type="image">
+                    <posx>-12</posx>
+                    <posy>-12</posy>
+                    <width>888</width>
+                    <height>780</height>
+                    <texture border="24">dialogBackground.png</texture>
+                    <colordiffuse>overlay</colordiffuse>
+                    <aspectratio>stretch</aspectratio>
+                </control>
+				<control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>12-col</width>
+                    <height>2-row</height>
+                    <texture border="10">masks/menuTitle2.png</texture>
+                    <colordiffuse>highlight</colordiffuse>
+                    <aspectratio>stretch</aspectratio>
+                </control>
+                <control type="label" id="1">
+                    <posx>24</posx>
+                    <posy>0</posy>
+                    <width>12-col-gutter</width>
+                    <height>2-row</height>
+                    <aligny>center</aligny>
+                    <font>dialogTitle</font>
+                    <textcolor>textActive</textcolor>
+                    <wrapmultiline>false</wrapmultiline>
+                    <shadowcolor></shadowcolor>
+                </control>
+				<!--page scrollbar-->
+	            <control type="group" id="8001">
+	                <visible>Control.IsVisible(60)</visible>
+	                <animation effect="fade" start="100" end="0" time="100" condition="!controlgroup(8001).hasfocus">conditional</animation>
+	                <control type="scrollbar" id="60">
+	                    <posx>-36</posx>
+	                    <posy>5-row</posy>
+	                    <height>11-row</height>
+	                    <onright>9000</onright>
+	                </control>
+	            </control>
+                <control type="group" id="9000">
+            		<include>defaultSelect</include>
+                </control>
+            
+                <!--buttons-->
+                <control type="grouplist" id="9760">
+                    <posx>3-col</posx>
+                    <posy>22-row</posy>
+                    <onleft>9000</onleft>
+                    <onright>9000</onright>
+                    <onup>9000</onup>
+                    <control type="button" id="5">
+                        <description>OK / Manual button</description>
+                        <width>6-col</width>
+        				<align>center</align>
+        				<texturenofocus>colors/offblack.png</texturenofocus>
+                        <label>186</label>
+                        <onclick>action(back)</onclick>
+                    </control>
+                </control>
+            
+            </control>
+        </control>
+        <!--debugging-->
+        <include>DebugGrid</include>
+        <control type="label">
+            <include>DialogID</include>
+            <label>DialogSelect.xml</label>
+        </control>
+    </controls>
+</window>

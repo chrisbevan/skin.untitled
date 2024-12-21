@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <defaultcontrol always="true">15</defaultcontrol>
+
+    <include>fadeInOut</include>
+    <controls>
+         <control type="image">
+                <posx>0</posx>
+                <posy>0</posy>
+                <include>dimensionsFullscreen</include>
+                <texture>colors/black.png</texture>
+                <colordiffuse>ddffffff</colordiffuse>
+                <aspectratio>stretch</aspectratio>
+            </control>
+            <control type="image">
+                <include>dimensionsFullscreen</include>
+                <texture>vignette.png</texture>
+                <colordiffuse>ffffffff</colordiffuse>
+                <aspectratio>stretch</aspectratio>
+            </control>
+        <control type="group">
+            <posx>col-7-begin</posx>
+            <posy>row-9-begin</posy>
+            <!--animations-->
+            <include>modalDialogInOut</include>
+            <control type="image">
+                <posx>0</posx>
+                <posy>0</posy>
+                <width>12-col</width>
+                <height>2-row</height>
+                <texture border="10">masks/menuTitle.png</texture>
+                <colordiffuse>highlight</colordiffuse>
+                <aspectratio>stretch</aspectratio>
+            </control>
+            <control type="label">
+                <posx>24</posx>
+                <posy>0</posy>
+                <width>12-col</width>
+                <height>2-row</height>
+                <aligny>center</aligny>
+                <font>dialogTitle</font>
+                <label>21422</label>
+                <textcolor>textActive</textcolor>
+            </control>
+            <control type="image">
+                <posx>0</posx>
+                <posy>2-row</posy>
+                <width>12-col</width>
+                <height>264</height>
+                <texture>colors/black.png</texture>
+                <colordiffuse>textboxInactive</colordiffuse>
+                <aspectratio>stretch</aspectratio>
+            </control>
+            <control type="group" id="9001">
+                <posx>0</posx>
+                <posy>84</posy>
+                <control type="button" id="15">
+                    <description>Rule Field</description>
+                    <texturenofocus colordiffuse="overlay">colors/black.png</texturenofocus>
+                    <posx>12</posx>
+                    <posy>0</posy>
+                    <width>6-col-gutter</width>
+                    <label>$LOCALIZE[31046]:</label>
+                    <onright>16</onright>
+                    <ondown>17</ondown>
+                </control>
+                <control type="button" id="16">
+                    <description>Rule operator</description>
+                    <texturenofocus colordiffuse="overlay">colors/black.png</texturenofocus>
+                    <posx>6-col</posx>
+                    <posy>0</posy>
+                    <width>420</width>
+                    <onleft>15</onleft>
+                    <ondown>17</ondown>
+                </control>
+                <control type="edit" id="17">
+                    <description>Value Button</description>
+                    <posx>12</posx>
+                    <posy>84</posy>
+                    <width>11-col-gutter</width>
+                    <texturenofocus colordiffuse="99ffffff">colors/offblack.png</texturenofocus>
+                    <texturefocus>colors/offblack.png</texturefocus>
+                    <textoffsetx>24</textoffsetx>
+                    <label></label>
+                    <align>left</align>
+                    <onup>16</onup>
+                    <onright>20</onright>
+                    <ondown>9002</ondown>
+                </control>
+                <!--just use a magnifying glass symbol for browse!-->
+                <control type="button" id="20">
+                    <description>Browse Button</description>
+                    <posx>780</posx>
+                    <posy>84</posy>
+                    <width>1-col</width>
+                    <height>2-row</height>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textoffsetx>0</textoffsetx>
+                    <texturefocus>colors/white.png</texturefocus>
+                    <texturenofocus colordiffuse="highlight">colors/white.png</texturenofocus>
+                    <label></label>
+                    <font>symbolLarge</font>
+                    <textcolor>textActive</textcolor>
+                    <focusedcolor>black</focusedcolor>
+                    <onup>16</onup>
+                    <onleft>17</onleft>
+                    <ondown>9002</ondown>
+                </control>
+                <!--OK / Cancel buttons-->
+                <control type="grouplist" id="9002">
+                    <posx>0</posx>
+                    <posy>6-row</posy>
+                    <width>9-col</width>
+                    <height>2-row</height>
+                    <onup>17</onup>
+                    <orientation>horizontal</orientation>
+                    
+                    <control type="button" id="18">
+                        <description>Ok Button</description>
+                        <label>186</label>
+                        <align>center</align>
+                        <textoffsetx>0</textoffsetx>
+                        <width>3-col</width>
+                        <texturefocus border="24" colordiffuse="highlight">masks/menuTitle.png</texturefocus>
+                        <texturenofocus border="24" colordiffuse="2f333333">masks/menuTitle.png</texturenofocus>
+                        <focusedcolor>textActive</focusedcolor>
+                    </control>
+                    <control type="button" id="19">
+                        <description>Cancel Button</description>
+                        <label>222</label>
+                        <align>center</align>
+                        <textoffsetx>0</textoffsetx>
+                        <width>3-col</width>
+                        <texturefocus border="24" colordiffuse="highlight">masks/menuTitle.png</texturefocus>
+                        <texturenofocus border="24" colordiffuse="2f333333">masks/menuTitle.png</texturenofocus>
+                        <focusedcolor>textActive</focusedcolor>
+                    </control>
+                    
+                </control>
+            </control>
+        </control>
+        <!--debugging-->
+        <include>DebugGrid</include>
+        <control type="label">
+            <include>DialogID</include>
+            <label>SmartPlaylistRule.xml</label>
+        </control>
+    </controls>
+</window>

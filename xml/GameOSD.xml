@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window>
+	<defaultcontrol always="true">100</defaultcontrol>
+	<include>fadeInOut</include>
+	<controls>
+		<!-- options menu-->
+        <control type="group">
+            <posx>0</posx>
+            <posy>0</posy>
+            <!--overlay-->
+            <control type="image">
+                <include>dimensionsFullscreen</include>
+                <texture>colors/black.png</texture>
+                <colordiffuse>e9FFFFFF</colordiffuse>
+                <aspectratio>stretch</aspectratio>
+            </control>
+			<control type="group">
+				<include>modalDialogInOutVertical</include>
+				<posx>col-2-begin</posx>
+                <posy>row-5-begin</posy>
+                
+	            <!--controls-->
+				<control type="panel" id="100">
+                    <visible>![window.isactive(gamevideofilter) | window.isactive(gamestretchmode) | window.isactive(gamesaves) | window.isactive(ingamesaves)] </visible>
+					<posx>8-col</posx>
+			        <posy>0</posy>
+			        <width>6-col</width>
+			        <height>20-row</height>
+			        <orientation>vertical</orientation>
+                    <itemlayout width="6-col" height="2-row">
+                        <control type="label">
+                            <posx>24</posx>
+                            <posy>0</posy>
+                            <width>6-col-gutter</width>
+                            <height>2-row</height>
+                            <aligny>center</aligny>
+                            <font>itemTitle</font>
+                            <textcolor>textActive</textcolor>
+                            <label>$INFO[ListItem.label]</label>
+                        </control>
+                    </itemlayout>
+                    <focusedlayout width="6-col" height="2-row">
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>6-col</width>
+                            <height>2-row</height>
+                            <aspectratio scalediffuse="false">stretch</aspectratio>
+                            <texture border="24" colordiffuse="highlight">masks/menuTitle.png</texture>
+                            <bordersize>0</bordersize>
+                        </control>
+                        <control type="label">
+                            <posx>24</posx>
+                            <posy>0</posy>
+                            <width>6-col-gutter</width>
+                            <height>2-row</height>
+                            <aligny>center</aligny>
+                            <font>itemTitle</font>
+                            <textcolor>textActive</textcolor>
+                            <label>$INFO[ListItem.label]</label>
+                        </control>
+                    </focusedlayout>
+			        <content>
+                        <item>
+							<description>Pause / Resume button</description>
+							<label>Resume</label>
+							<onclick>Play</onclick>
+						</item>
+						<item>
+							<description>Save / Load button</description>
+							<label>$LOCALIZE[35249]</label>
+							<onclick>ActivateWindow(InGameSaves)</onclick>
+						</item>
+						<item>
+							<description>Reset button</description>
+							<label>$LOCALIZE[13007]</label>
+							<onclick>PlayerControl(Reset)</onclick>
+						</item>
+						<item>
+							<description>Stop button</description>
+							<label>$LOCALIZE[35222]</label>
+							<onclick>Stop</onclick>
+						</item>
+						<item>
+						</item>
+						<item>
+							<description>Settings button</description>
+							<label>$LOCALIZE[5]</label>
+							<onclick>ActivateWindow(GameAdvancedSettings)</onclick>
+						</item>
+						<item>
+                			<description>Video filter button</description>
+                			<label>$LOCALIZE[35225]</label>
+                			<onclick>ActivateWindow(GameVideoFilter)</onclick>
+						</item>
+						<item>
+                			<description>Stretch mode button</description>
+                			<label>$LOCALIZE[35233]</label>
+                			<onclick>ActivateWindow(GameStretchMode)</onclick>
+						</item>
+                		<item>
+    						<description>Players button</description>
+    						<label>$LOCALIZE[35172]</label>
+    						<onclick>ActivateWindow(GameAgents)</onclick>
+                		</item>
+                		<item>
+                			<description>Controller settings button</description>
+                			<label>$LOCALIZE[35234]</label>
+                			<onclick>ActivateWindow(GameControllers)</onclick>
+                		</item>
+                		<item>
+                			<description>Controller port configuration</description>
+                			<label>$LOCALIZE[35110]</label>
+                			<onclick>ActivateWindow(GamePorts)</onclick>
+                		</item>
+			        </content>
+			    </control>
+			</control>	
+		</control>
+		<!--debugging-->
+        <include>DebugGrid</include>
+        <control type="label">
+            <include>DialogID</include>
+            <label>GameOSD.xml</label>
+        </control>
+	</controls>
+</window>

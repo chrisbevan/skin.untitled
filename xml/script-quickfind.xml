@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <defaultcontrol always="true">100</defaultcontrol>
+    <include>fadeInOut</include>
+	<controls>
+        
+        <control type="image">
+            <include>dimensionsFullscreen</include>
+            <texture fallback="colors/black.png">$INFO[container(200).listitem.art(fanart)]</texture>
+            <colordiffuse>FF555555</colordiffuse>
+            <aspectratio>scale</aspectratio>
+			<fadetime>250</fadetime>
+        </control>
+        <control type="image">
+            <include>dimensionsFullscreen</include>
+            <texture>vignette.png</texture>
+            <colordiffuse></colordiffuse>
+            <aspectratio>stretch</aspectratio>
+        </control>
+        
+        <!--page header-->
+		<control type="group">
+			<posx>col-1-begin</posx>
+            <posy>row-1-begin</posy>
+			<!--title-->
+			<control type="label" id="4">
+	            <posx>0</posx>
+	            <posy>0</posy>
+	            <width>18-col</width>
+	            <font>sectionTitle</font>
+	            <textcolor>textActive</textcolor>
+	        </control>
+	        <!--subtitle-->
+	        <control type="label" id="3">
+	            <posx>0</posx>
+	            <posy>26</posy>
+	            <width>12-col</width>
+				<height>2-row</height>
+	            <font>menuTitle2</font>
+	            <textcolor>textActive</textcolor>
+	        </control>
+			<!--time-->
+			<control type="label">
+	            <posx>24-col</posx>
+	            <posy>0</posy>
+	            <width>12-col</width>
+	            <align>right</align>
+	            <font>sectionTitle</font>
+	            <label>[B]$INFO[System.Time][/B]</label>
+	            <textcolor>textActive</textcolor>
+	        </control>
+			<!--date-->
+	        <control type="label">
+	            <posx>24-col</posx>
+	            <posy>26</posy>
+	            <width>12-col</width>
+				<height>2-row</height>
+				<align>right</align>
+	            <font>menuTitle2</font>
+	            <label>$INFO[System.Date(DDD)], $INFO[system.Date(mmm d)]</label>
+	            <textcolor>textActive</textcolor>
+	        </control>
+		</control>
+    
+        <!--search input-->
+        <control type="group">
+            <posx>col-1-begin</posx>
+            <posy>row-8-begin</posy>s
+            
+            <control type="button" id="1">
+                <posx>-6</posx>
+                <posy>6-row</posy>
+                <width>1-col</width>
+                <height>1-col</height>
+                <onup>100</onup>
+                <ondown>100</ondown>
+                <onright>100</onright>
+                <texturenofocus></texturenofocus>
+                <texturefocus colordiffuse="highlight">masks/square.png</texturefocus>
+                <textoffsetx>0</textoffsetx>
+                <focusedcolor>textActive</focusedcolor>
+                <textcolor>textActive</textcolor>
+                <font>symbol</font>
+                <align>center</align>
+                <label>DEL</label>
+                <onright>100</onright>
+            </control>
+            
+            <control type="wraplist" id="100">
+                <posx>1-col</posx>
+                <posy>0</posy>
+                <width>1-col</width>
+                <height>14-row</height>
+                <focusposition>3</focusposition>
+                <onleft>1</onleft>
+                <onright>200</onright>
+                <itemlayout width="1-col" height="2-row">      
+                    <control type="label">
+                        <posx>0</posx>
+                        <posy>0</posy>
+                        <width>1-col</width>
+                        <height>2-row</height>
+                        <align>center</align>
+                        <aligny>center</aligny>
+                        <font>itemTitle</font>
+                        <textcolor>textActive</textcolor>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                </itemlayout>
+                <focusedlayout width="1-col" height="2-row">
+    				<control type="image">
+    					<posx>0</posx>
+    					<posy>0</posy>
+    					<width>1-col</width>
+    					<height>1-col</height>
+    					<aspectratio>stretch</aspectratio>
+    					<texture diffuse="masks/square.png">colors/white.png</texture>
+    					<colordiffuse>highlight</colordiffuse>
+    				</control>
+                    <control type="label">
+                        <posx>0</posx>
+                        <posy>0</posy>
+                        <width>1-col</width>
+                        <height>2-row</height>
+                        <align>center</align>
+                        <aligny>center</aligny>
+                        <font>itemTitle</font>
+                        <textcolor>textActive</textcolor>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                </focusedlayout>
+            </control>
+        </control>
+        
+        <!--search output-->
+        <control type="group">
+            <posx>col-4-begin</posx>
+            <posy>row-3-begin</posy>
+            
+            <control type="panel" id="200">
+                <posx>0</posx>
+                <posy>2-row</posy>
+                <width>12-col</width>
+                <height>19-row</height>
+                <onleft>100</onleft>
+                <itemlayout width="12-col" height="2-row">
+                    <control type="label">
+                        <posx>96</posx>
+                        <posy>0</posy>
+                        <width>7-col-gutter</width>
+                        <height>2-row</height>
+                        <aligny>center</aligny>
+                        <font>itemTitle</font>
+                        <textcolor>textActive</textcolor>
+                        <shadowcolor></shadowcolor>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                </itemlayout>
+                <focusedlayout width="12-col" height="2-row">
+                    <control type="image">
+                        <posx>0</posx>
+                        <posy>0</posy>
+                        <width>1-col</width>
+                        <height>69</height>
+                        <aspectratio scalediffuse="false">stretch</aspectratio>
+                        <texture diffuse="masks/iconEndCapLeft.png" border="0">colors/white.png</texture>
+                        <animation type="focus">
+                            <effect type="fade" start="100" end="50" time="0"/>
+                        </animation>
+                        <colordiffuse>highlight</colordiffuse>
+                    </control>
+                    <control type="image">
+                        <posx>1-col</posx>
+                        <posy>0</posy>
+                        <width>11-col</width>
+                        <height>69</height>
+                        <aspectratio>stretch</aspectratio>
+    					<texture border="0">masks/tvChannel.png</texture>
+    					<colordiffuse>highlight</colordiffuse>
+                    </control>
+                    <control type="label">
+                        <posx>96</posx>
+                        <posy>0</posy>
+                        <width>7-col-gutter</width>
+                        <height>2-row</height>
+                        <aligny>center</aligny>
+                        <font>itemTitle</font>
+                        <textcolor>textActive</textcolor>
+                        <shadowcolor></shadowcolor>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                    <control type="label">
+                        <posx>9-col-gutter</posx>
+                        <posy>0</posy>
+                        <width>3-col</width>
+                        <height>2-row</height>
+                        <align>right</align>
+                        <aligny>center</aligny>
+                        <font>smallStrong</font>
+                        <textcolor>textActive</textcolor>
+                        <label>$INFO[ListItem.Label2]</label>
+                    </control>
+                </focusedlayout>
+            </control>
+            
+            <control type="image">
+                <visible></visible>
+				<posx>13-col</posx>
+				<posy>2-row</posy>
+				<width>7-col</width>
+				<height>756</height>
+				<aspectratio>stretch</aspectratio>
+				<texture diffuse="masks/poster.png">$INFO[container(200).listitem.art(poster)]</texture>
+			</control>
+            
+            <control type="image">
+                <visible></visible>
+				<posx>13-col</posx>
+				<posy>5-row</posy>
+				<width>7-col</width>
+				<height>7-col</height>
+				<aspectratio>stretch</aspectratio>
+				<texture diffuse="masks/poster.png">$INFO[container(200).listitem.art(thumb)]</texture>
+			</control>
+        </control>
+        
+		<!--debugging-->
+		<include>DebugGrid</include>
+		<control type="label">
+			<include>WindowID</include>
+			<label>script-quickfind.xml</label>
+		</control>
+	</controls>
+</window>

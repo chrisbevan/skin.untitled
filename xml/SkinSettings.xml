@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <defaultcontrol always="true">8000</defaultcontrol>
+    <controls>
+        <!--background-->
+        <include>globalBackground</include>
+        <control type="group">
+            <posx>col-4-begin</posx>
+            <posy>row-5-begin</posy>
+            <!--animations-->
+            <include>modalDialogInOutVertical</include>
+            <control type="image">
+                <posx>-12</posx>
+                <posy>-12</posy>
+                <width>1320</width>
+                <height>720</height>
+                <texture border="24">dialogBackground.png</texture>
+                <colordiffuse>overlay</colordiffuse>
+                <aspectratio>stretch</aspectratio>
+            </control>
+            <control type="image">
+                <posx>0</posx>
+                <posy>0</posy>
+                <width>18-col</width>
+                <height>2-row</height>
+                <texture border="10">masks/menuTitle2.png</texture>
+                <colordiffuse>highlight</colordiffuse>
+                <aspectratio>stretch</aspectratio>
+            </control>
+            <!--title-->
+            <control type="label">
+                <posx>24</posx>
+                <posy>0</posy>
+                <width>18-col-gutter</width>
+                <height>2-row</height>
+                <font>dialogTitle</font>
+                <label>$LOCALIZE[20077]</label>
+                <textcolor>textActive</textcolor>
+                <shadowcolor></shadowcolor>
+            </control>
+            <!--sub menu-->
+            <control type="group">
+                <posx>0</posx>
+                <posy>76</posy>
+                <!-- Category buttons -->
+                <control type="list" id="8000">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>284</width>
+                    <height>18-row</height>
+                    <onright>200</onright>
+                    <itemlayout height="2-row" width="4-col">
+                        <control type="label">
+                            <posx>24</posx>
+                            <posy>2</posy>
+                            <width>4-col-gutter</width>
+                            <height>2-row</height>
+                            <aligny>center</aligny>
+                            <font>buttonTitle</font>
+                            <textcolor>textActive</textcolor>
+                            <label>$INFO[ListItem.label]</label>
+                            <shadowcolor></shadowcolor>
+                        </control>
+                    </itemlayout>
+                    <focusedlayout height="2-row" width="4-col">
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>287</width>
+                            <height>2-row</height>
+                            <aspectratio>stretch</aspectratio>
+                            <texture>colors/white.png</texture>
+                        </control>
+                        <control type="label">
+                            <posx>24</posx>
+                            <posy>0</posy>
+                            <width>4-col-gutter</width>
+                            <height>2-row</height>
+                            <aligny>center</aligny>
+                            <font>buttonTitle</font>
+                            <textcolor>black</textcolor>
+                            <label>$INFO[ListItem.label]</label>
+                            <shadowcolor></shadowcolor>
+                        </control>
+                    </focusedlayout>
+                    <content>
+                        <item id="1">
+                            <label>$LOCALIZE[128]</label>
+                        </item>
+                        <item id="3">
+                            <label>$LOCALIZE[31044]</label>
+                        </item>
+                    </content>
+                </control>
+            </control>
+            <!--options-->
+            <control type="grouplist" id="200">
+                <posx>4-col</posx>
+                <posy>76</posy>
+                <width>14-col</width>
+                <height>17-row</height>
+                <onleft>8000</onleft>
+                <itemgap>0</itemgap>
+                <orientation>vertical</orientation>
+                <control type="button" id="2">
+                    <visible>Container(8000).Hasfocus(1) + String.IsEmpty(Skin.String(homeBackground))</visible>
+                    <description>Set home background image directory</description>
+                    <width>14-col</width>
+                    <align>left</align>
+                    <textoffsetx>24</textoffsetx>
+                    <label>Set home background directory (images)</label>
+                    <label2>$INFO[Skin.String(homeBackground)]</label2>
+                    <onclick>Skin.SetPath(homeBackground)</onclick>
+                    <textwidth>8-col</textwidth>
+                    <texturefocus colordiffuse="ffffffff">colors/white.png</texturefocus>
+                    <texturenofocus></texturenofocus>
+                    <font>buttonTitle</font>
+                </control>
+                <control type="button" id="3">
+                    <visible>Container(8000).Hasfocus(1) + !String.IsEmpty(Skin.String(homeBackground))</visible>
+                    <description>Reset home background image directory</description>
+                    <width>14-col</width>
+                    <align>left</align>
+                    <textoffsetx>24</textoffsetx>
+                    <label>Reset home background directory (images)</label>
+                    <onclick>Skin.Reset(homeBackground)</onclick>
+                    <textwidth>8-col</textwidth>
+                    <texturefocus colordiffuse="ffffffff">colors/white.png</texturefocus>
+                    <texturenofocus></texturenofocus>
+                    <font>buttonTitle</font>
+                </control>
+                <control type="button" id="4">
+                    <visible>Container(8000).Hasfocus(1) + String.IsEmpty(Skin.String(homeBackgroundVideos)) + System.AddonIsEnabled(script.randomvideo)</visible>
+                    <description>Set home background video directory</description>
+                    <width>14-col</width>
+                    <align>left</align>
+                    <textoffsetx>24</textoffsetx>
+                    <label>Set home background directory (videos)</label>
+                    <label2>$INFO[Skin.String(homeBackgroundVideo)]</label2>
+                    <onclick>Skin.SetPath(homeBackgroundVideos)</onclick>
+                    <textwidth>8-col</textwidth>
+                    <texturefocus colordiffuse="ffffffff">colors/white.png</texturefocus>
+                    <texturenofocus></texturenofocus>
+                    <font>buttonTitle</font>
+                </control>
+                <control type="button" id="5">
+                    <visible>Container(8000).Hasfocus(1) + !String.IsEmpty(Skin.String(homeBackgroundVideos)) + System.AddonIsEnabled(script.randomvideo)</visible>
+                    <description>Reset home background video directory</description>
+                    <width>14-col</width>
+                    <align>left</align>
+                    <textoffsetx>24</textoffsetx>
+                    <label>Reset home background directory (videos)</label>
+                    <onclick>Skin.Reset(homeBackgroundVideos)</onclick>
+                    <textwidth>8-col</textwidth>
+                    <texturefocus colordiffuse="ffffffff">colors/white.png</texturefocus>
+                    <texturenofocus></texturenofocus>
+                    <font>buttonTitle</font>
+                </control>
+                <control type="radiobutton" id="1">
+                    <visible>Container(8000).Hasfocus(1)</visible>
+                    <description>Reverse power down options</description>
+                    <width>14-col</width>
+                    <label>31142</label>
+                    <texturefocus colordiffuse="ffffffff">colors/white.png</texturefocus>
+                    <texturenofocus></texturenofocus>
+                    <onclick>Skin.ToggleSetting(exitFirst)</onclick>
+                    <selected>Skin.HasSetting(exitFirst)</selected>
+                    <font>buttonTitle</font>
+                </control>
+                <control type="radiobutton" id="7">
+                    <visible>Container(8000).Hasfocus(3)</visible>
+                    <description>Enable Debug Grid</description>
+                    <width>14-col</width>
+                    <label>31034</label>
+                    <texturefocus colordiffuse="ffffffff">colors/white.png</texturefocus>
+                    <texturenofocus></texturenofocus>
+                    <onclick>Skin.ToggleSetting(DebugGrid)</onclick>
+                    <selected>Skin.HasSetting(DebugGrid)</selected>
+                    <font>buttonTitle</font>
+                </control>
+                <control type="radiobutton" id="8">
+                    <visible>Container(8000).Hasfocus(3)</visible>
+                    <description>Disable Debug Info</description>
+                    <width>14-col</width>
+                    <label>31035</label>
+                    <texturefocus colordiffuse="ffffffff">colors/white.png</texturefocus>
+                    <texturenofocus></texturenofocus>
+                    <onclick>Skin.ToggleSetting(DebugInfo)</onclick>
+                    <selected>Skin.HasSetting(DebugInfo)</selected>
+                    <font>buttonTitle</font>
+                </control>
+                <control type="button" id="9">
+                    <visible>Container(8000).Hasfocus(3)</visible>
+                    <description>Reload skin</description>
+                    <width>14-col</width>
+                    <align>left</align>
+                    <textoffsetx>24</textoffsetx>
+                    <label>31043</label>
+                    <texturefocus colordiffuse="ffffffff">colors/white.png</texturefocus>
+                    <texturenofocus></texturenofocus>
+                    <onclick>ReloadSkin()</onclick>
+                    <onclick>activateWindow(home)</onclick>
+                    <font>buttonTitle</font>
+                </control>
+                <control type="radiobutton" id="10">
+                    <visible>Container(8000).Hasfocus(1)</visible>
+                    <description>Disable fanart animation effect</description>
+                    <width>14-col</width>
+                    <label>31102</label>
+                    <texturefocus colordiffuse="ffffffff">colors/white.png</texturefocus>
+                    <texturenofocus></texturenofocus>
+                    <onclick>Skin.ToggleSetting(lowPowerMode)</onclick>
+                    <onclick>ReloadSkin()</onclick>
+                    <selected>Skin.HasSetting(lowPowerMode)</selected>
+                    <font>buttonTitle</font>
+                </control>
+                <control type="radiobutton" id="17">
+                    <visible>Container(8000).Hasfocus(1)</visible>
+                    <description>Extended Fanart</description>
+                    <width>14-col</width>
+                    <label>31220</label>
+                    <texturefocus colordiffuse="ffffffff">colors/white.png</texturefocus>
+                    <texturenofocus></texturenofocus>
+                    <onclick>Skin.ToggleSetting(disableExtendedFanart)</onclick>
+                    <selected>Skin.HasSetting(disableExtendedFanart)</selected>
+                    <font>buttonTitle</font>
+                </control>
+				<control type="radiobutton" id="18">
+                    <visible>Container(8000).Hasfocus(1)</visible>
+                    <description>Disable recently added Movies</description>
+                    <width>14-col</width>
+                    <label>31238</label>
+                    <texturefocus colordiffuse="ffffffff">colors/white.png</texturefocus>
+                    <texturenofocus></texturenofocus>
+                    <onclick>Skin.ToggleSetting(disableRecentMovies)</onclick>
+                    <selected>Skin.HasSetting(disableRecentMovies)</selected>
+                    <font>buttonTitle</font>
+                </control>
+				<control type="radiobutton" id="19">
+                    <visible>Container(8000).Hasfocus(1)</visible>
+                    <description>Disable recently added TVShows</description>
+                    <width>14-col</width>
+                    <label>31239</label>
+                    <texturefocus colordiffuse="ffffffff">colors/white.png</texturefocus>
+                    <texturenofocus></texturenofocus>
+                    <onclick>Skin.ToggleSetting(disableRecentTVShows)</onclick>
+                    <selected>Skin.HasSetting(disableRecentTVShows)</selected>
+                    <font>buttonTitle</font>
+                </control>
+				<control type="radiobutton" id="20">
+                    <visible>Container(8000).Hasfocus(1)</visible>
+                    <description>Disable recently added Albums</description>
+                    <width>14-col</width>
+                    <label>31240</label>
+                    <texturefocus colordiffuse="ffffffff">colors/white.png</texturefocus>
+                    <texturenofocus></texturenofocus>
+                    <onclick>Skin.ToggleSetting(disableRecentAlbums)</onclick>
+                    <selected>Skin.HasSetting(disableRecentAlbums)</selected>
+                    <font>buttonTitle</font>
+                </control>
+            </control>
+        </control>
+        <!--debugging-->
+        <include>DebugGrid</include>
+        <control type="label">
+            <include>DialogID</include>
+            <label>SkinSettings.xml</label>
+        </control>
+    </controls>
+</window>

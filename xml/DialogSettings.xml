@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <defaultcontrol>5</defaultcontrol>
+    <include>fadeInOut</include>
+    <controls>
+        <!--background-->
+        <include condition="!Player.HasVideo">globalBackground</include>
+        <control type="group">
+            <animation type="conditional" condition="Window.IsVisible(sliderdialog) | window.isvisible(selectdialog) | window.isactive(subtitlesearch)" reversible="false">
+                <effect type="fade" start="100" end="0" time="200"/>
+            </animation>
+            <posx>col-7-begin</posx>
+            <posy>row-4-begin</posy>
+            <!--animations-->
+            <control type="image">
+                <posx>-12</posx>
+                <posy>-12</posy>
+                <width>888</width>
+                <height>768</height>
+                <texture border="24">dialogBackground.png</texture>
+                <colordiffuse>overlay</colordiffuse>
+                <aspectratio>stretch</aspectratio>
+            </control>
+            <control type="image">
+				<visible>player.hasvideo</visible>
+                <posx>-12</posx>
+                <posy>-12</posy>
+                <width>888</width>
+                <height>768</height>
+                <texture border="24">dialogBackground.png</texture>
+                <colordiffuse>99000000</colordiffuse>
+                <aspectratio>stretch</aspectratio>
+            </control>
+			<control type="image">
+                <posx>0</posx>
+                <posy>0</posy>
+                <width>12-col</width>
+                <height>71</height>
+                <texture border="10">masks/menuTitle2.png</texture>
+                <colordiffuse>highlight</colordiffuse>
+                <aspectratio>stretch</aspectratio>
+            </control>
+            <control type="label">
+                <posx>24</posx>
+                <posy>0</posy>
+                <width>16-col-gutter</width>
+                <height>2-row</height>
+                <aligny>center</aligny>
+                <font>dialogTitle</font>
+                <textcolor>textActive</textcolor>
+                <shadowcolor></shadowcolor>
+                <label>Settings</label>
+            </control>
+            <!--settings selector-->
+            <control type="grouplist" id="4500">
+                <posx>0</posx>
+                <posy>78</posy>
+                <orientation>horizontal</orientation>
+                <itemgap>0</itemgap>
+                <ondown>5</ondown>
+                <control type="button" id="4501">
+                    <animation type="Conditional" condition="!window.isactive(osdsubtitlesettings) + !control.hasfocus(4501)">
+    					<effect type="fade" start="100" end="33" time="200"/>
+    	            </animation>
+                    <label>Subtitles</label>
+                    <width>4-col</width>
+                    <align>center</align>
+                    <textoffsetx>0</textoffsetx>
+                    <texturenofocus colordiffuse="44000000">colors/black.png</texturenofocus>
+                    <onclick>dialog.close(osdaudiosettings,force)</onclick>
+                    <onclick>dialog.close(osdvideosettings,force)</onclick>
+                    <onclick>ActivateWindow(osdsubtitlesettings)</onclick>
+                </control> 
+                <control type="button" id="4502">
+                    <animation type="Conditional" condition="!window.isactive(osdaudiosettings) + !control.hasfocus(4502)">
+    					<effect type="fade" start="100" end="33" time="200"/>
+    	            </animation>
+                    <label>Audio</label>
+                    <width>4-col</width>
+                    <align>center</align>
+                    <textoffsetx>0</textoffsetx>
+                    <texturenofocus colordiffuse="44000000">colors/black.png</texturenofocus>
+                    <onclick>dialog.close(osdvideosettings,force)</onclick>
+                    <onclick>dialog.close(osdsubtitlesettings,force)</onclick>
+                    <onclick>ActivateWindow(osdaudiosettings)</onclick>
+                </control> 
+                <control type="button" id="4503">
+                    <animation type="Conditional" condition="!window.isactive(osdvideosettings) + !control.hasfocus(4503)">
+    					<effect type="fade" start="100" end="33" time="200"/>
+    	            </animation>
+                    <label>Video</label>
+                    <width>4-col</width>
+                    <align>center</align>
+                    <textoffsetx>0</textoffsetx>
+                    <texturenofocus colordiffuse="44000000">colors/black.png</texturenofocus>
+                    <onclick>dialog.close(osdaudiosettings,force)</onclick>
+                    <onclick>dialog.close(osdsubtitlesettings,force)</onclick>
+                    <onclick>ActivateWindow(osdvideosettings)</onclick>
+                </control>  
+            </control>
+            <control type="grouplist" id="5">
+                <description>control area</description>
+                <posx>0</posx>
+                <posy>160</posy>
+                <width>12-col</width>
+                <height>556</height>
+                <onright>9000</onright>
+                <onup>4501</onup>
+                <onback>4501</onback>
+            </control>
+            <control type="button" id="7">
+                <description>Default Button</description>
+            </control>
+            <control type="radiobutton" id="8">
+                <description>Default RadioButton</description>
+            </control>
+            <control type="spincontrolex" id="9">
+                <description>Default SpinControlex</description>
+            </control>
+            <control type="edit" id="12">
+                <width>8-col</width>
+                <font>buttonTitle</font>
+                <align>left</align>
+                <texturefocus>colors/white.png</texturefocus>
+                <texturenofocus></texturenofocus>
+                <textoffsetx>24</textoffsetx>
+                <focusedcolor>black</focusedcolor>
+            </control>
+            <control type="sliderex" id="13">
+                <description>Default Slider</description>
+            </control>
+            <control type="label" id="14">
+                <description>Default Label</description>
+                <label></label>
+                <align>left</align>
+                <aligny>center</aligny>
+                <textoffsetx>24</textoffsetx>
+                <height>2-row</height>
+                <font>settingsCategoryTitle</font>
+                <textcolor>highlight</textcolor>
+                <shadowcolor></shadowcolor>
+            </control>
+            <!--dialog controls-->
+            <control type="grouplist" id="9000">
+                <visible>false</visible>
+                <posx>12-col</posx>
+                <posy>84</posy>
+                <width>4-col</width>
+                <height>6-row</height>
+                <onleft>5</onleft>
+                <orientation>vertical</orientation>
+                <control type="button" id="28">
+                    <description>OK</description>
+                    <label>186</label>
+                </control>
+                <control type="button" id="29">
+                    <description>Cancel</description>
+                    <label>222</label>
+                </control>
+                <control type="button" id="30">
+                    <description>Clear / Settings</description>
+                    <label>31048</label>
+                </control>
+            </control>
+        </control>
+        <!--debugging-->
+        <include>DebugGrid</include>
+        <control type="label">
+            <include>DialogID</include>
+            <label>dialogSettings.xml</label>
+        </control>
+    </controls>
+</window>
